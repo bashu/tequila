@@ -1,3 +1,7 @@
+include:
+  - postgres.dev
+  - memcached.libmemcached
+
 {% set version = salt['pillar.get']('python:version', '2') %}
 
 python:
