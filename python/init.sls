@@ -21,6 +21,7 @@ libraries:
       - libfreetype6-dev
       - liblcms2-dev
       - libwebp-dev
+      - libreadline-dev
       - libncurses-dev
       - libxslt-dev
 
