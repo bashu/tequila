@@ -1,0 +1,24 @@
+dashboard:
+  elasticsearch:
+    datasource: influxdb
+    format: json
+    template: elasticsearch/files/grafana_dashboards/elasticsearch_influxdb.json
+  elasticsearch_prometheus:
+    datasource: prometheus
+    format: json
+    template: elasticsearch/files/grafana_dashboards/elasticsearch_prometheus.json
+  main_prometheus:
+    datasource: prometheus
+    row:
+      ost-middleware:
+        title: Middleware
+        panel:
+          elasticsearch:
+            title: Elasticseach
+            links:
+            - dashboard: Elasticseach
+              title: Elasticseach
+              type: dashboard
+            target:
+              cluster_status:
+                expr: avg(elasticsearch_up) by (name)

@@ -1,0 +1,48 @@
+{%- load_yaml as base_defaults %}
+Debian:
+  pkgs:
+  - elasticsearch
+  - default-jre-headless
+  curator_pkgs:
+  - elasticsearch-curator
+  - cron
+  service: elasticsearch
+  version: '1.4.4'
+RedHat:
+  pkgs:
+  - elasticsearch
+  curator_pkgs:
+  - elasticsearch-curator
+  service: elasticsearch
+  version: '1.4.4'
+default:
+  version: 5
+{%- endload %}
+
+{%- set server = salt['grains.filter_by'](base_defaults, merge=salt['pillar.get']('elasticsearch:server'), base='default') %}
+
+{%- load_yaml as client_defaults %}
+Debian:
+  pkgs:
+  - python-elasticsearch
+  server:
+    host: 127.0.0.1
+    port: 9200
+    binary_port: 9300
+RedHat:
+  pkgs:
+  - python-elasticsearch
+  server:
+    host: 127.0.0.1
+    port: 9200
+    binary_port: 9300
+{%- endload %}
+
+{%- set client = salt['grains.filter_by'](client_defaults, merge=salt['pillar.get']('elasticsearch:client')) %}
+
+{% set monitoring = salt['grains.filter_by']({
+    'default': {
+        'service_failed_warning_threshold_percent': 0.3,
+        'service_failed_critical_threshold_percent': 0.6,
+    },
+}, grain='os_family', merge=salt['pillar.get']('elasticsearch:monitoring')) %}

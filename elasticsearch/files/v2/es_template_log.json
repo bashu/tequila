@@ -1,0 +1,103 @@
+{
+    "mappings": {
+        "message": {
+            "properties": {
+                "Logger": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "Hostname": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "Pid": {
+                    "index": "not_analyzed",
+                    "type": "long"
+                },
+                "Severity": {
+                    "index": "not_analyzed",
+                    "type": "long"
+                },
+                "Type": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "programname": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "python_module": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "severity_label": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "environment_label": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "region": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "request_id": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "tenant_id": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "user_id": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "instance_id": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "http_response_time": {
+                    "type": "float"
+                },
+                "http_status": {
+                    "type": "integer"
+                },
+                "http_method": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "http_url": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "http_client_ip_address": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "remote_addr": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "user_agent_browser": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "http_referer": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "user_agent_os": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                },
+                "http_version": {
+                    "index": "not_analyzed",
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "template": "log-*"
+}
